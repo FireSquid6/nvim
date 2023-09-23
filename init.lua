@@ -33,6 +33,7 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'kdheepak/lazygit.nvim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -251,8 +252,12 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- nvim tree
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeFocus<cr>', {silent = true})
 
+
+-- open the git menu
+vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', {silent = true})
 
 -- barbar keymaps
 BUFFER_OPTS = { noremap = true, silent = true }
