@@ -2,7 +2,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-
 -- INSTALL LAZY
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -185,25 +184,8 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  'xiyaowong/telescope-emoji.nvim',
 }, {})
-
--- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -271,6 +253,15 @@ vim.keymap.set('n', '<leader>bs', '<cmd>BufferOrderByLanguage<cr>', BUFFER_OPTS)
 
 vim.keymap.set('n', '<leader>bk', '<cmd>BufferClose<cr>', BUFFER_OPTS)
 
+-- emoji
+vim.keymap.set('n', '<leader>se', '<cmd>Telescope emoji<cr>', { desc = '[S]earch [E]moji' })
+
+-- file management
+vim.keymap.set('n', '<leader>fs', '<cmd>w<cr>', { desc = 'Save This File' })
+vim.keymap.set('n', '<leader>fS', '<cmd>wa<cr>', { desc = 'Save all Files' })
+vim.keymap.set('n', '<leader>fq', '<cmd>wq<cr>', { desc = 'Quit and Save this File'})
+vim.keymap.set('n', '<leader>fQ', '<cmd>wqa<cr>', { desc = 'Quit and Save all Files' })
+
 -- SET OPTIONS
 vim.opt.smartcase = true
 vim.opt.hlsearch = false
@@ -278,6 +269,7 @@ vim.opt.wrap = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+vim.opt.relativenumber = true
 
 
 -- [[ Highlight on yank ]]
@@ -306,6 +298,7 @@ require('telescope').setup {
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'emoji')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
