@@ -21,9 +21,6 @@ require('lazy').setup({
   -- Wakatime
   {
     'wakatime/vim-wakatime',
-    config = function()
-      vim.g.wakatime_api_key = 'waka_82c2d9c8-99d7-44b1-b6ea-9cd26b61c17b'
-    end,
   },
 
   -- Github Copilot
