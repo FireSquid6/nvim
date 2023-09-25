@@ -1,3 +1,6 @@
+-- neovide stuff
+vim.o.guifont = "FiraCode Nerd Font:h12"
+
 -- SET LEADER KEY
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
