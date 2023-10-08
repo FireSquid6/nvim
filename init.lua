@@ -52,6 +52,14 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'romgrk/barbar.nvim',
 
+  -- Autotag
+  {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+
   -- autoclose characters
   {
     'm4xshen/autoclose.nvim',
@@ -198,6 +206,8 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+
+
   'xiyaowong/telescope-emoji.nvim',
 }, {})
 
